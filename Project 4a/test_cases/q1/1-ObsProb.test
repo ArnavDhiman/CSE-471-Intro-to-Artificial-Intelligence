@@ -1,0 +1,36 @@
+class: "OutputTest"
+success: "PASS"
+failure: "NO PASS"
+
+# Python statements initializing variables for the test below.
+preamble: """
+import inference
+from game import Directions
+
+class dummyGhostAgent(object):
+    pass
+dummyGhostAgent = dummyGhostAgent()
+dummyGhostAgent.index = 1
+inf = inference.InferenceModule(dummyGhostAgent)
+oldGhostPos = (3, 5)
+ghostPosition = (4, 6)
+jailPosition = inf.getJailPosition()
+
+ans1 = inf.getObservationProb(Directions.NORTH, oldGhostPos, ghostPosition, jailPosition)
+ans2 = inf.getObservationProb(Directions.EAST, oldGhostPos, ghostPosition, jailPosition)
+ans3 = inf.getObservationProb(Directions.NORTH, oldGhostPos, ghostPosition, jailPosition)
+ans4 = inf.getObservationProb(Directions.EAST, oldGhostPos, ghostPosition, jailPosition)
+ans5 = inf.getObservationProb(Directions.WEST, oldGhostPos, jailPosition, jailPosition)
+ans6 = inf.getObservationProb(Directions.EAST, oldGhostPos, jailPosition, jailPosition)
+ans7 = inf.getObservationProb(Directions.NORTH, oldGhostPos, jailPosition, jailPosition)
+ans8 = inf.getObservationProb(Directions.STOP, oldGhostPos, jailPosition, jailPosition)
+
+ans = map(float, [ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8])
+"""
+
+# A python expression to be evaluated.  This expression must return the 
+# same result for the student and instructor's code.
+
+test: "ans"
+
+

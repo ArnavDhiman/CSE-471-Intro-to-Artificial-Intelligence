@@ -1,0 +1,23 @@
+class: "PolicyIterationTest"
+
+# GridWorld specification
+#    _ is empty space
+#    numbers are terminal states with that value
+#    # is a wall
+#    S is a start state
+#
+grid: """
+    _    _    _    +1
+    _    #    _    -1
+    _    _    _    _
+"""
+discount: "1"
+noise: "0.0"
+livingReward: "-0.04"
+epsilon: "0.2"
+learningRate: "0.1"
+numExperiences: "3000"
+valueIterations: "1000"
+iterations: "10000"
+
+

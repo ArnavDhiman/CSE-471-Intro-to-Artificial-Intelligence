@@ -1,0 +1,15 @@
+class: "SingleInferenceTest"
+
+nodes: "['A', 'B', 'C', 'D']"
+
+A: "[0, 0.4]"
+
+B: "[1, 'A', 0.5, 0.8]"
+
+C: "[1, 'B', 0.3, 0.2]"
+
+D: "[1, 'B', 0.5, 0.8]"
+
+solveFor: "B"
+
+given: "['C', False]"
